@@ -3,7 +3,7 @@ import random
 dimSize = 20
 xBound = 1
 yBound = 11
-dim = [random.randint(xBound, yBound) for i in range(dimSize+1)]
+dim = [random.randint(xBound, yBound) * (-1)**i for i in range(dimSize+1)]
 
 checkNumberStr = input('Please enter the number in range from {0} to {1} to check: '.format(xBound, yBound))
 try:
