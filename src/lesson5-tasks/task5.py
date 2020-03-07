@@ -10,6 +10,7 @@ commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate v
 nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
 '''
 delimeters = (' ', '.', ',', '?', '!')
+pos = 120
 
 sentences = text.split('. ')
 for i in sentences:
@@ -23,10 +24,8 @@ for i in chars:
         count += 1
 print('Spaces (second method): ', count)
 print('number of non space symbols are: ', len(chars) - count)
-if text[120:121] in delimeters:
-    pos = 120
-else:
-    pos = text[0:121].rfind(' ')  # suggestion - there is always space between words and after delimiters
+if text[pos:pos + 1] not in delimeters:
+    pos = text[0:pos + 1].rfind(' ')  # suggestion - there is always space between words and after delimiters
     if pos == -1:
         pos = 0
 print('='*80)
