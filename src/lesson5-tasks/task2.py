@@ -41,6 +41,6 @@ def numToString(string):
 
 
 if __name__ == '__main__':
-    numStr = input('Please enter any integer number in range 0-999999: ')
+    numStr = input('Please enter any integer number in range 0-{0}: '.format(UPPERBOUND))
     print(numToString(numStr))
 

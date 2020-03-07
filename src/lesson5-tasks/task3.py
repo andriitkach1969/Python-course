@@ -4,7 +4,7 @@ import re
 
 def parseDate(dateStr):
     """
-    Function parse input string in strict format DD-MM-YYYY into set of int representation for day, month and year
+    Function parse input string in strict format DD-MM-YYYY into separate integer day, month and year
     :param dateStr:
     :return:
     """
