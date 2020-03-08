@@ -37,7 +37,6 @@ def numToString(string):
     if num == 0:
         return g.zeroUkr
 
-    # init vars
     resultStr = ''
 
     # main loop by triads (10**3)
@@ -48,18 +47,18 @@ def numToString(string):
         string = str(numFloorPart)
         stringLen = len(string)
 
-        # proceed the two lowest digits
+        # proceed the two lowest digits for some cases
         _tmp = string[-2:stringLen]
         tmpStr = g.singlesUkr.get(_tmp)
         if tmpStr is None:
-            # proceed the lowest digit
+            # proceed the lowest digit from current triad
             _tmp = string[-1:stringLen]
             tmpStr = g.singlesUkr.get(_tmp, '')
-            # proceed second digit
+            # proceed second digit from current triad. if it absents - use empty string
             tmpStr = concatStr(g.tensUrk.get(string[-2:stringLen - 1], ''), tmpStr)
-        # save position for triads
+        # save position for triad's cases
         casePosition = int(_tmp)
-        # proceed the highest digit. if it absents - use empty string
+        # proceed the highest digit from current triad. if it absents - use empty string
         tmpStr = concatStr(g.hundredsUkr.get(string[-3:stringLen - 2], ''), tmpStr)
 
         # add the triad name
