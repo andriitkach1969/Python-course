@@ -10,11 +10,13 @@ tensUrk = {'2': 'двадцять', '3': 'тридцять', '4': 'сорок', 
            '8': 'вісімдесят', '9': 'дев\'яносто'}
 hundredsUkr = {'1': 'сто', '2': 'двісті', '3': 'триста', '4': 'чотиреста', '5': 'п\'ятсот', '6': 'шістсот',
                '7': 'сімсот', '8': 'вісімсот', '9': 'дев\'ятсот'}
-thousandsUkr = {}
 
 
 def concatStr(a, b):
-    return str(a) + ' ' + str(b)
+    if a:
+        return str(a) + ' ' + str(b)
+    else:
+        return b
 
 
 def numToString(string):
@@ -37,6 +39,8 @@ def numToString(string):
     if resultStr is None:
         resultStr = singlesUkr.get(string[-1:stringLen])
         resultStr = concatStr(tensUrk.get(string[-2:stringLen - 1]), resultStr)
+    resultStr = concatStr(hundredsUkr.get(string[-3:stringLen - 2], ''), resultStr)
+
     return resultStr
 
 
