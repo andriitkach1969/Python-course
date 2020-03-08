@@ -10,13 +10,15 @@ tensUrk = {'2': 'двадцять', '3': 'тридцять', '4': 'сорок', 
            '8': 'вісімдесят', '9': 'дев\'яносто'}
 hundredsUkr = {'1': 'сто', '2': 'двісті', '3': 'триста', '4': 'чотиреста', '5': 'п\'ятсот', '6': 'шістсот',
                '7': 'сімсот', '8': 'вісімсот', '9': 'дев\'ятсот'}
+triads = {0: '', 1: ' тисяч(а/і)', 3: 'мільон(и/ів)'}
 
 
 def concatStr(a, b):
-    if a:
-        return str(a) + ' ' + str(b)
+    if a and b:
+        _tmpstr = ' '
     else:
-        return b
+        _tmpstr = ''
+    return str(a) + _tmpstr + str(b)
 
 
 def numToString(string):
@@ -34,12 +36,26 @@ def numToString(string):
     if num == 0:
         return zeroUkr
 
-    stringLen = len(string)
-    resultStr = singlesUkr.get(string[-2:stringLen])
-    if resultStr is None:
-        resultStr = singlesUkr.get(string[-1:stringLen])
-        resultStr = concatStr(tensUrk.get(string[-2:stringLen - 1]), resultStr)
-    resultStr = concatStr(hundredsUkr.get(string[-3:stringLen - 2], ''), resultStr)
+    resultStr = ''
+    tmpStr = None
+
+    for i in range(4):
+        numIntPart = num // 1000
+        numFloorPart = num % 1000
+
+        string = str(numFloorPart)
+        stringLen = len(string)
+        tmpStr = singlesUkr.get(string[-2:stringLen])
+        if tmpStr is None:
+            tmpStr = singlesUkr.get(string[-1:stringLen], '')
+            tmpStr = concatStr(tensUrk.get(string[-2:stringLen - 1], ''), tmpStr)
+        tmpStr = concatStr(hundredsUkr.get(string[-3:stringLen - 2], ''), tmpStr)
+
+        tmpStr = concatStr(tmpStr, triads.get(i, ''))
+        resultStr = concatStr(tmpStr, resultStr)
+        num = numIntPart
+        if not num:
+            break
 
     return resultStr
 
@@ -47,4 +63,3 @@ def numToString(string):
 if __name__ == '__main__':
     numStr = input('Please enter any integer number in range 0-{0}: '.format(UPPERBOUND))
     print(numToString(numStr))
-
