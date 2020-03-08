@@ -26,6 +26,7 @@ def numToString(string):
     :param string:
     :return:
     """
+    # check param is a valid integer number
     try:
         num = abs(int(string))
     except Exception as e:
@@ -36,9 +37,10 @@ def numToString(string):
     if num == 0:
         return zeroUkr
 
+    # init vars
     resultStr = ''
-    tmpStr = None
 
+    # main loop by triads (10**3)
     for i in range(4):
         numIntPart = num // 1000
         numFloorPart = num % 1000

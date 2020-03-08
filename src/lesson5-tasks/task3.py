@@ -14,6 +14,8 @@ def parseDate(dateStr):
     errorYearMsg = '** Error. Wrong year. Expected in range 1970-9999'
 
     datePattern = r'\d{2}[-*/]\d{2}[-*/]\d{4}'
+
+    # check param string is match to required pattern
     try:
         if not re.fullmatch(datePattern, dateStr):
             raise Exception
@@ -23,6 +25,8 @@ def parseDate(dateStr):
     except:
         print(errorFormatMsg)
         exit(1)
+
+    # check the date is valid
     try:
         if not 1 <= _day <= 31:
             raise Exception(errorDayMsg)
