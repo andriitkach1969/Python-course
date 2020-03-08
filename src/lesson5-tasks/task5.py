@@ -13,13 +13,18 @@ nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
 # set some variables
 delimiters = (' ', '.', ',', '?', '!')
 pos = 120
+pattern = 'quis'
 
 # split text into sentences and print the result
 sentences = text.split('. ')
 for i in sentences:
     print(i)
-# print amount of sentences
+# count the  amount of sentences
 print('Number of sentences are: ', len(sentences))
+
+# count the amount of pattern per text
+# known issues - method text.count() may count incorrectly.
+print('The pattern {0} is found {1} time(s) per initial text'.format(pattern, text.count(pattern)))
 
 # count the spaces by two different methods
 print('Spaces (first method): ', text.count(' '))
