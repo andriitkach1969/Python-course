@@ -5,8 +5,11 @@ import re
 def parseDate(dateStr):
     """
     Function parse input string in strict format DD-MM-YYYY into separate integer day, month and year
-    :param dateStr:
-    :return:
+    :param dateStr: string in format DD-MM-YYYY
+    :type dateStr: string
+    :return: set consist of 3 elements (day, month, year)
+    :rtype: set
+    :
     """
     errorFormatMsg = '** Error. Wrong date format. Expected "DD-MM-YYYY"'
     errorDayMsg = '** Error. Wrong day. Expected in range 1-31'
