@@ -18,7 +18,7 @@ def parseDate(dateStr):
 
     datePattern = r'\d{2}[-*/]\d{2}[-*/]\d{4}'
 
-    # check param string is match to required pattern
+    # check if param string is matching to required pattern
     try:
         if not re.fullmatch(datePattern, dateStr):
             raise Exception
