@@ -10,11 +10,13 @@ veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut 
 commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
 nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
 '''
+# гарна ідея з заданням символів кінця слова в кортеж
 # set some variables
 delimiters = (' ', '.', ',', '?', '!')
 pos = 120
 pattern = 'quis'
 
+# на справді речень більше ніж 4, тут не враховано питальні речення
 # split text into sentences and print the result
 sentences = text.split('. ')
 for i in sentences:
@@ -38,6 +40,7 @@ print('Spaces (second method): ', count)
 # print the number of no spaces symbols
 print('number of non space symbols are: ', len(chars) - count)
 
+# чудове рішення з обрізкою тексту
 # cut the initial text to 120 symbols using "last whole word" rule
 # Important suggestion - there is always space between words and after delimiters
 if text[pos:pos + 1] not in delimiters:

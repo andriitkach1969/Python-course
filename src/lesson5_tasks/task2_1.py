@@ -1,5 +1,9 @@
-import src.lesson5_tasks.task2_1_globals as g
+#import src.lesson5_tasks.task2_1_globals as g
+import task2_1_globals as g
 
+# чудова ідея з використанням функцій та винесенням чисел в глобальні змінні
+# щодо коду див файл task2.py
+# коментарі актуальні й для цього файлу
 
 def concatStr(a, b):
     """

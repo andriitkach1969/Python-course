@@ -1,3 +1,4 @@
+# чудова ідея винести текст в окремий файл для глобальних змінних
 text = '''
 Etiam in porta mauris, ut lacinia dui. Suspendisse maximus ipsum purus, vitae cursus mauris blandit
 eu. Integer tempor non neque eget eleifend. Morbi id nulla nec lectus lobortis imperdiet eget mollis

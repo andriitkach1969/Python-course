@@ -7,6 +7,8 @@ yBound = 11
 # generate the initial array
 dim = [random.randint(xBound, yBound) * (-1)**i for i in range(dimSize)]
 
+# Добре було б виводити userfriendly exception
+# Хоча обробка вийнятку, вже гарний варіант
 checkNumberStr = input('Please enter the number in range from {0} to {1} to check: '.format(xBound, yBound))
 # check the input is valid
 # main logic

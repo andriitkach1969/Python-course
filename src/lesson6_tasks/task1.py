@@ -1,5 +1,6 @@
 import src.lesson6_tasks.globals as g
 
+# все чудово
 totalWords = 0
 findWords = 0
 

@@ -1,5 +1,6 @@
 import src.lesson6_tasks.globals as g
 
+# totalWords зайва змінна, ми її не використовуємо
 totalWords = 0
 words = g.text.split()
 outWords = []

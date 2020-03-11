@@ -1,5 +1,6 @@
 import src.lesson6_tasks.globals as g
 
+# все чудово
 ratings = {}
 
 for word in g.text.split():
