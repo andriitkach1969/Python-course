@@ -1,3 +1,4 @@
+# initial text
 text = '''
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
 totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta
@@ -9,13 +10,23 @@ veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut 
 commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
 nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
 '''
+# set some variables
 delimiters = (' ', '.', ',', '?', '!')
 pos = 120
+pattern = 'quis'
 
+# split text into sentences and print the result
 sentences = text.split('. ')
 for i in sentences:
     print(i)
+# count the  amount of sentences
 print('Number of sentences are: ', len(sentences))
+
+# count the amount of pattern per text
+# known issues - method text.count() may count incorrectly.
+print('The pattern {0} is found {1} time(s) per initial text'.format(pattern, text.count(pattern)))
+
+# count the spaces by two different methods
 print('Spaces (first method): ', text.count(' '))
 count = 0
 chars = [char for char in text]
@@ -23,7 +34,12 @@ for i in chars:
     if i == ' ':
         count += 1
 print('Spaces (second method): ', count)
+
+# print the number of no spaces symbols
 print('number of non space symbols are: ', len(chars) - count)
+
+# cut the initial text to 120 symbols using "last whole word" rule
+# Important suggestion - there is always space between words and after delimiters
 if text[pos:pos + 1] not in delimiters:
     pos = text[0:pos + 1].rfind(' ')  # suggestion - there is always space between words and after delimiters
     if pos == -1:
