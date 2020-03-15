@@ -1,4 +1,6 @@
+import os
 import pickle
+import platform
 
 
 def ex1():
@@ -34,5 +36,36 @@ def ex2():
         print(eList)
 
 
+def ex3():
+    print('OS core: ', os.name)
+    print('-'*20)
+    path = os.getcwd()
+    p = path[1:].split('/')
+    for folder in p:
+        print(folder)
+    print(path)
+    print('-'*20)
+    print('OS core by Platform: {0} - {1}'.format(platform.system(), platform.platform()))
+    print('Machine: ', platform.machine(), platform.processor(), platform.node())
+
+
+class MyEx(Exception):
+    pass
+
+
+def ex4():
+    try:
+        print("Try branch")
+        raise MyEx('ERROR')
+    except MyEx as e:
+        print('** Custom exception error: ', e)
+    except Exception as e:
+        print(e)
+    else:
+        print('Else branch')
+    finally:
+        print('Finally branch')
+
+
 if __name__ == '__main__':
-    ex2()
+    ex4()
